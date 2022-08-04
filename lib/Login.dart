@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:hybridapp/VerifyOtp.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -55,6 +56,7 @@ class _LoginState extends State<Login> {
                   Row(
                     children: <Widget>[
                       Container(
+                        alignment: Alignment.centerLeft,
                         width: 80,
                         height: 50,
                         decoration: BoxDecoration(
@@ -65,7 +67,10 @@ class _LoginState extends State<Login> {
                             style: BorderStyle.solid
                           )
                         ),
-                        child: DropdownMenuItem(child: Text('data')),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Image.network('http://fast-hand.ml/uploads/flags/india-flag.png'),
+                        ),
                       ),
                       SizedBox(
                         width: 10,
@@ -107,7 +112,12 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: 45.0,
                     width: 250.0,
-                    child: RaisedButton(onPressed: (){},
+                    child: RaisedButton(onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => VerifyOtp()),
+                      );
+                    },
                     child: Text('Login'),
                     color: Colors.lightBlue,
                     textColor: Colors.white,
